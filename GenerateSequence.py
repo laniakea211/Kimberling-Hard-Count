@@ -8,10 +8,9 @@ for iterations in range(int(input("How many iterations of the sequence would you
     # first need to search for new numbers in frequency and, if there are any, add to numbers list
     new_numbers = numbers.copy()
     for i in frequency:
-        if i not in new_numbers and i > len(new_numbers):
+        if i not in new_numbers:
             new_numbers.append(i)
-        elif i not in new_numbers and i <= len(new_numbers):
-            new_numbers.insert(i - 1, i)
+    new_numbers.sort()
 
     # now need to calculate new frequencies
     new_frequency = new_numbers.copy()
@@ -24,6 +23,5 @@ for iterations in range(int(input("How many iterations of the sequence would you
     frequency = new_frequency.copy()
     numbers = new_numbers.copy()
 
-sequence = [frequency, numbers]
-#print(sequence)
-print(sorted(numbers))
+print(frequency)
+print(numbers)
