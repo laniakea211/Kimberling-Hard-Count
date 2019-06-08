@@ -1,24 +1,24 @@
-# begin list; first list is counting the number in the second list
+# begin list; first list is counting the frequency of the number in the second list
 frequency = [1]
 numbers = [1]
+new_numbers = [1]
 
 # create a loop that will generate the sequence for some number of input iterations
-for iterations in range(int(input("How many iterations of the sequence would you like to generate? "))):
+for iterations in range(int(input("How many iterations of the sequence would you like to run? "))):
 
-    # first need to search for new numbers in frequency and, if there are any, add to numbers list
-    new_numbers = numbers.copy()
+    # first need to search for new numbers in frequency and, if there are any, add to new numbers list
     for i in frequency:
         if i not in new_numbers:
             new_numbers.append(i)
-    new_numbers.sort()
+    new_numbers.sort()  # you can leave unsorted if you want to see the order the new numbers appear in
 
     # now need to calculate new frequencies
-    new_frequency = new_numbers.copy()
-    for number in new_numbers:
-        if number in numbers:
-            new_frequency[new_numbers.index(number)] = frequency.count(number) + numbers.count(number) + frequency[numbers.index(number)]
-        elif number not in numbers:
-            new_frequency[new_numbers.index(number)] = frequency.count(number) + numbers.count(number)
+    new_frequency = new_numbers.copy()  # just so it's the right length; we'll replace each entry in the following loop
+    for x in new_numbers:
+        if x in numbers:
+            new_frequency[new_numbers.index(x)] = frequency.count(x) + numbers.count(x) + frequency[numbers.index(x)]
+        else:
+            new_frequency[new_numbers.index(x)] = frequency.count(x) + numbers.count(x)
 
     frequency = new_frequency.copy()
     numbers = new_numbers.copy()
