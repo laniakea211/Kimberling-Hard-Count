@@ -1,7 +1,10 @@
+import matplotlib.pyplot as plt
+
 # begin list; first list is counting the frequency of the number in the second list
 frequency = [1]
 numbers = [1]
 new_numbers = [1]
+pair_plot = [[1], [1]]
 
 # create a loop that will generate the sequence for some number of input iterations
 for iterations in range(int(input("How many iterations of the sequence would you like to run? "))):
@@ -10,6 +13,8 @@ for iterations in range(int(input("How many iterations of the sequence would you
     for i in frequency:
         if i not in new_numbers:
             new_numbers.append(i)
+            pair_plot[0].append(i)
+            pair_plot[1].append(numbers[frequency.index(i)])
     new_numbers.sort()  # you can leave unsorted if you want to see the order the new numbers appear in
 
     # now need to calculate new frequencies
@@ -25,3 +30,5 @@ for iterations in range(int(input("How many iterations of the sequence would you
 
 print(frequency)
 print(numbers)
+plt.plot(pair_plot[0], pair_plot[1], 'ro')
+plt.show()
