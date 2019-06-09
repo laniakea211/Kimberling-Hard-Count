@@ -30,5 +30,7 @@ for iterations in range(int(input("How many iterations of the sequence would you
 
 print(frequency)
 print(numbers)
-plt.plot(pair_plot[0], pair_plot[1], 'ro')
+# plt.plot(pair_plot[0], pair_plot[1], 'ro')
+# plt.show()
+plt.plot([len(pair_plot[0])], 'ro')
 plt.show()
